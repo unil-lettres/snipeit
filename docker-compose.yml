@@ -1,0 +1,39 @@
+networks:
+  snipeit-net:
+    driver: bridge
+
+services:
+  snipeit-app:
+    image: snipe/snipe-it:latest
+    volumes:
+      - app-data:/var/lib/snipeit
+    ports:
+      - "127.0.0.1:8000:80"
+    depends_on:
+      snipeit-mysql:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - snipeit-net
+    container_name: snipeit-app
+  snipeit-mysql:
+    image: mariadb:11.5.2
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3301:3306"
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 1s
+      retries: 5
+    networks:
+      - snipeit-net
+    container_name: snipeit-mysql
+
+volumes:
+  mysql-data:
+  app-data:

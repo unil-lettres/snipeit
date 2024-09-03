@@ -1,0 +1,11 @@
+# Ignore IDE stuff
+.idea
+
+# Ignore configuration files
+docker-compose.override.yml
+
+# Ignore environment variables
+.env
+
+# Other
+.DS_Store
