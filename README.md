@@ -47,3 +47,7 @@ Build & run all the containers for this project:
 `docker-compose up -d`
 
 Use a reverse proxy configuration to map the url to port `8000`.
+
+# Helm
+
+The Helm charts for this project are available at [https://github.com/unil-lettres/k8s](https://github.com/unil-lettres/k8s), in the ``elett`` directory.
