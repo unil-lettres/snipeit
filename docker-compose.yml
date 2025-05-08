@@ -4,7 +4,7 @@ networks:
 
 services:
   snipeit-app:
-    image: grokability/snipe-it:latest
+    image: snipe/snipe-it
     volumes:
       - app-data:/var/lib/snipeit
     ports:
