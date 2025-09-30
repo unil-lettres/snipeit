@@ -4,7 +4,7 @@ networks:
 
 services:
   snipeit-app:
-    image: snipe/snipe-it
+    image: snipe/snipe-it:latest
     volumes:
       - app-data:/var/lib/snipeit
     ports:
