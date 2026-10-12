@@ -6,14 +6,12 @@ services:
   snipeit-app:
     restart: unless-stopped
     deploy:
-      mode: global
       resources:
         limits:
           memory: 1000M
   snipeit-mysql:
     restart: unless-stopped
     deploy:
-      mode: global
       resources:
         limits:
           memory: 500M
